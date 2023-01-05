@@ -5,16 +5,16 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     public CharacterController controller;
-    public float speed = 16f;
+    public float speed = 7.5f;
     Vector3 velocity;
-    public float gravity = -19.62f;
+    public float gravity = -50f;
     public bool IsWall;
     public Transform groundCheck;
     public float groundDistance = 0.8f;
     public LayerMask groundMask;
     public bool isgrounded;
     public float downV = 6f;
-    public float jumpHeight = 3f;
+    public float jumpHeight = 2f;
 
     public Transform playertrans;
     public WallRunning wallScript;
@@ -32,12 +32,12 @@ public class Movement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftShift))
         {
-             speed = 22f; 
+             speed = 15f; 
         }
 
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
-            speed = 16f;
+            speed = 7.5f;
         }
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
@@ -69,10 +69,13 @@ public class Movement : MonoBehaviour
     }
     public void downVRes2()
     {
-        velocity.y += gravity/2 *Time.deltaTime;
+        velocity.y += gravity/3 *Time.deltaTime;
+        jumpHeight = 4f;
     }
     public void GvAdd()
     {
         velocity.y += gravity * Time.deltaTime;
+        jumpHeight = 2f;
+
     }
 }

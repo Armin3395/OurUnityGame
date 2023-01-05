@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2707,6 +2707,7 @@ GameObject:
   - component: {fileID: 1550469321}
   - component: {fileID: 1550469320}
   - component: {fileID: 1550469322}
+  - component: {fileID: 1550469323}
   m_Layer: 0
   m_Name: MiniMap Cam
   m_TagString: Untagged
@@ -2786,6 +2787,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 1558552722}
   MiniCam: {fileID: 1550469318}
+--- !u!114 &1550469323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1550469318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b201678a9a8dc5740b21d3c07e2604e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoftLights:
+  - {fileID: 705507994}
+  HardLights:
+  - {fileID: 705507994}
 --- !u!1 &1558552722
 GameObject:
   m_ObjectHideFlags: 0
@@ -2821,8 +2838,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 1558552724}
-  speed: 16
-  gravity: -19.62
+  speed: 7.5
+  gravity: -50
   IsWall: 0
   groundCheck: {fileID: 1004375634}
   groundDistance: 0.8
@@ -3535,7 +3552,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 785, y: 275}
+  m_AnchoredPosition: {x: 785, y: 374}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1818845986
