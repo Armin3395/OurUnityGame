@@ -9,14 +9,41 @@ public class CamMovement : MonoBehaviour
     public float MouseSensY = 100f;
     public Transform playerbody;
     public float maxangle = 80f;
+    public float newFPS;
+
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
     }
 
+    //public float fps = 30f;
 
-    void Update()
+    void OnGUI()
     {
+        //this void calculates and shows fps
+        newFPS = 1.0f / Time.smoothDeltaTime;
+        //fps = Mathf.Lerp(fps, newFPS, 0.0005f);
+    }
+        void Update()
+    {
+        //Debug.Log(newFPS);
+        if (newFPS < 50)
+        {
+            MouseSensX = 140 + newFPS;
+        }
+        if (newFPS < 70 && newFPS > 50)
+        {
+            MouseSensX = newFPS + 100;
+        }
+        if(newFPS > 70 && newFPS < 100)
+        {
+            MouseSensX = newFPS + 190;
+        }
+        if (newFPS > 100)
+        {
+            MouseSensX = newFPS + 230;
+        }
+
         float MouseX = Input.GetAxis("Mouse X") * MouseSensX * Time.deltaTime;
         float MouseY = Input.GetAxis("Mouse Y") * MouseSensY * Time.deltaTime;
 
