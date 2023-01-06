@@ -1,6 +1,6 @@
 # OurGame
 A very beginner unity game
-by Armin, Mmd, Danial
+by Armin, Mmd, Danialو Pouya
 
 the game is currently in the first steps of developing
 
