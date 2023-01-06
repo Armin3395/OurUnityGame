@@ -86,12 +86,9 @@ public class Movement : MonoBehaviour
     public void downVRes2()
     {
         velocity.y += gravity/3 *Time.deltaTime;
-        jumpHeight = 5f;
     }
     public void GvAdd()
     {
         velocity.y += gravity * Time.deltaTime;
-        jumpHeight = 5f;
-
     }
 }
