@@ -49,7 +49,7 @@ public class Movement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftShift))
         {
-             speed = 20f; 
+             speed = 15f; 
         }
 
         if (Input.GetKeyUp(KeyCode.LeftShift))
