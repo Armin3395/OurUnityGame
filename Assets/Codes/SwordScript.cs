@@ -14,7 +14,7 @@ public class SwordScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             anim.SetTrigger("AttackTrig");
-            coroutine = Check(1.1f, 1);
+            coroutine = Check(1f, 1);
             StartCoroutine(coroutine);
         }
 
@@ -30,7 +30,7 @@ public class SwordScript : MonoBehaviour
             }
             if (which == 1 && Input.GetKey(KeyCode.Mouse0))
             {
-                coroutine = Check(1.1f, 2);
+                coroutine = Check(1f, 2);
                 StartCoroutine(coroutine);
             }
             if (which == 2 && !Input.GetKey(KeyCode.Mouse0))
@@ -40,3 +40,4 @@ public class SwordScript : MonoBehaviour
         }
     }
 }
+
