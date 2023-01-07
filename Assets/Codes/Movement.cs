@@ -49,12 +49,12 @@ public class Movement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftShift))
         {
-             speed = 15f; 
+             speed = 20f; 
         }
 
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
-            speed = 7.5f;
+            speed = 12f;
         }
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
