@@ -12,7 +12,7 @@ public class MiniMap : MonoBehaviour
     private void LateUpdate()
     {
         camPos.x = Player.transform.position.x;
-        camPos.y = 20f + Player.transform.position.y;
+        camPos.y = 25f + Player.transform.position.y;
         camPos.z = Player.transform.position.z;
         MiniCam.transform.position = camPos;
 

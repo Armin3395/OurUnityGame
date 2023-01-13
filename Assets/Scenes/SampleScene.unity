@@ -3306,7 +3306,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1550469318}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 8.59, y: 12.46, z: 3.04}
+  m_LocalPosition: {x: 8.59, y: 15, z: 3.04}
   m_LocalScale: {x: 1, y: 1.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3357,6 +3357,7 @@ GameObject:
   - component: {fileID: 1558552725}
   - component: {fileID: 1558552724}
   - component: {fileID: 1558552723}
+  - component: {fileID: 1558552731}
   - component: {fileID: 1558552729}
   - component: {fileID: 1558552730}
   m_Layer: 0
@@ -3523,6 +3524,23 @@ MonoBehaviour:
   volume: {fileID: 1850889720}
   nomot: {fileID: 11400000, guid: fdab6c82fb5befd4c8f1c3255999b853, type: 2}
   mot: {fileID: 11400000, guid: b05dbd562d05c534ba5c8ab5b2838149, type: 2}
+--- !u!114 &1558552731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1558552722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51e0d8dd6b6d19a43b81699da4254f8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camTrans: {fileID: 1784529350}
+  playerTrans: {fileID: 1558552728}
+  speed: 10
+  currentpos: {x: 0, y: 0, z: 0}
+  movescript: {fileID: 1558552723}
 --- !u!1 &1559067097
 GameObject:
   m_ObjectHideFlags: 0
