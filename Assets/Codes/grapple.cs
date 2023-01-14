@@ -14,18 +14,35 @@ public class grapple : MonoBehaviour
     private void Update()
     {
         RaycastHit hit;
-
+        //Debug.Log(camTrans.forward);
         if (Input.GetKey(KeyCode.Q))
         {
-            if (Physics.Raycast(camTrans.position, transform.TransformDirection(Vector3.forward), out hit, 60f))
+            //if (Physics.Raycast(camTrans.position, transform.TransformDirection(Vector3.forward), out hit, 60f))
+            //{
+           // Vector3 dirv = new(camTrans.localRotation.x, playerTrans.rotation.y, playerTrans.rotation.z);
+
+                Ray frontRay = new Ray(transform.position, transform.forward);
+            Vector3 forwardvec = new(camTrans.forward.x, transform.forward.y, transform.forward.z);
+            if (Physics.Raycast(transform.position, forwardvec, out hit, 100f))
             {
-                float step = speed * Time.deltaTime;
-                Debug.Log(hit.point);
-                //move player to hit.point
-                //playerTrans.Translate(Vector3.forward * Time.deltaTime);
-                movedir = camTrans.TransformDirection(Vector3.forward) * 5;
-                movescript.controller.Move(movedir * 10 *Time.deltaTime);
+                //Debug.Log(forwardvec);
+                //Debug.Log(hit.point);
+                //Debug.Log(camTrans.forward.x);
             }
+                float step = speed * Time.deltaTime;
+            //Debug.Log(transform.rotation);
+            //move player to hit.point
+            //playerTrans.Translate(Vector3.forward * Time.deltaTime);
+            //movedir = camTrans.TransformDirection(Vector3.forward) * 5;
+            //Vector3 forward1 = new(camTrans.forward.x, transform.forward.y, transform.forward.z);
+            Vector3 forward2 = new(transform.forward.x, camTrans.forward.y, transform.forward.z);
+            if (Physics.Raycast(transform.position, forward2, out hit, 100f))
+            {
+               movescript.controller.Move(forward2 *Time.deltaTime * 130);
+                //Debug.DrawRay(transform.position, forward2);
+               // Debug.Log("Joe");
+            }
+           // }
         }
     }
 }
