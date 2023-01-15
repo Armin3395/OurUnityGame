@@ -11,38 +11,67 @@ public class grapple : MonoBehaviour
     public Vector3 currentpos;
     public Movement movescript;
     Vector3 movedir;
+    bool canGrapple = true;
+    public IEnumerator coroutine;
+    public LayerMask GrappleMask;
+
     private void Update()
     {
         RaycastHit hit;
-        //Debug.Log(camTrans.forward);
         if (Input.GetKey(KeyCode.Q))
         {
-            //if (Physics.Raycast(camTrans.position, transform.TransformDirection(Vector3.forward), out hit, 60f))
-            //{
-           // Vector3 dirv = new(camTrans.localRotation.x, playerTrans.rotation.y, playerTrans.rotation.z);
+            if (canGrapple )
+            {
+                Vector3 forward2 = new(transform.forward.x, camTrans.forward.y, transform.forward.z);
+                if (Physics.Raycast(transform.position, forward2, out hit, 200f, GrappleMask))
+                {
+                    movescript.controller.Move(forward2 * Time.deltaTime * 130);
 
-                Ray frontRay = new Ray(transform.position, transform.forward);
-            Vector3 forwardvec = new(camTrans.forward.x, transform.forward.y, transform.forward.z);
-            if (Physics.Raycast(transform.position, forwardvec, out hit, 100f))
-            {
-                //Debug.Log(forwardvec);
-                //Debug.Log(hit.point);
-                //Debug.Log(camTrans.forward.x);
+                    movescript.IsWall = true;
+                    movescript.downVRes3();
+                    coroutine = WaitF(3f, 1);
+                    StartCoroutine(coroutine);
+                    if (Input.GetKeyUp(KeyCode.Q))
+                    {
+                        //StopAllCoroutines();
+                        canGrapple = false;
+                        coroutine = WaitF(0.5f, 2);
+                        StartCoroutine(coroutine);
+                    }
+                }
+                else
+                {
+                    movescript.IsWall = false;
+                }
             }
-                float step = speed * Time.deltaTime;
-            //Debug.Log(transform.rotation);
-            //move player to hit.point
-            //playerTrans.Translate(Vector3.forward * Time.deltaTime);
-            //movedir = camTrans.TransformDirection(Vector3.forward) * 5;
-            //Vector3 forward1 = new(camTrans.forward.x, transform.forward.y, transform.forward.z);
-            Vector3 forward2 = new(transform.forward.x, camTrans.forward.y, transform.forward.z);
-            if (Physics.Raycast(transform.position, forward2, out hit, 100f))
+            else
             {
-               movescript.controller.Move(forward2 *Time.deltaTime * 130);
-                //Debug.DrawRay(transform.position, forward2);
-               // Debug.Log("Joe");
+                movescript.IsWall = false;
             }
-           // }
+        }
+        else
+        {
+            movescript.IsWall = false;
+        }
+    }
+    IEnumerator WaitF(float waitTime, int which)
+    {
+        yield return new WaitForSeconds(waitTime);
+        {
+            if (which == 1)
+            {
+                canGrapple = false;
+                coroutine = WaitF(0.5f, 2);
+                StartCoroutine(coroutine);
+            }
+            if (which == 2)
+            {
+                canGrapple = true;
+            }
+            if (which == 3)
+            {
+                canGrapple = false;
+            }
         }
     }
 }

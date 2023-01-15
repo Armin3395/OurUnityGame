@@ -21,7 +21,7 @@ public class Movement : MonoBehaviour
     public WallRunning wallScript;
     public bool canjump1 = false;
 
-    
+
 
     private float fps = 30f;
 
@@ -49,7 +49,7 @@ public class Movement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftShift))
         {
-             speed = 20f; 
+            speed = 20f;
         }
 
         if (Input.GetKeyUp(KeyCode.LeftShift))
@@ -62,13 +62,13 @@ public class Movement : MonoBehaviour
         Vector3 move = transform.right * x + transform.forward * y;
         controller.Move(move * speed * Time.deltaTime);
 
-        if (Input.GetButtonDown("Jump")&&(isgrounded || canjump1))
+        if (Input.GetButtonDown("Jump") && (isgrounded || canjump1))
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
-                if (canjump1 == true)
-                {
-                    canjump1 = false;
-                }
+            if (canjump1 == true)
+            {
+                canjump1 = false;
+            }
         }
         if (IsWall)
         {
@@ -78,17 +78,25 @@ public class Movement : MonoBehaviour
         {
             GvAdd();
         }
-        
 
-        
+
+
         controller.Move(velocity * Time.deltaTime);
     }
     public void downVRes2()
     {
-        velocity.y += gravity/3 *Time.deltaTime;
+        velocity.y += gravity / 3 * Time.deltaTime;
     }
     public void GvAdd()
     {
         velocity.y += gravity * Time.deltaTime;
+    }
+    public void downVRes3()
+    {
+        if (velocity.y <0)
+        {
+            // should become smoother for example using Lerp
+            velocity.y = velocity.y / 2;
+        }
     }
 }
