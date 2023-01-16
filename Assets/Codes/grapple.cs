@@ -15,28 +15,33 @@ public class grapple : MonoBehaviour
     public IEnumerator coroutine;
     public LayerMask GrappleMask;
 
+    public float Yrot1;
+    bool rotLock = true;
+
     private void Update()
     {
         RaycastHit hit;
         if (Input.GetKey(KeyCode.Q))
         {
-            if (canGrapple )
+            if (canGrapple)
             {
                 Vector3 forward2 = new(transform.forward.x, camTrans.forward.y, transform.forward.z);
-                if (Physics.Raycast(transform.position, forward2, out hit, 200f, GrappleMask))
+                if (Physics.Raycast(transform.position, forward2, out hit, 400f, GrappleMask))
                 {
-                    movescript.controller.Move(forward2 * Time.deltaTime * 130);
+                    Debug.Log("meow");
+                    if (rotLock)
+                    {
+                        Yrot1 = transform.eulerAngles.y;
+                        rotLock = false;
+                    }
+                    movescript.controller.Move(forward2 * Time.deltaTime * 60);
+                    //Debug.DrawRay(transform.position, forward2, Color.black);
 
                     movescript.IsWall = true;
                     movescript.downVRes3();
-                    coroutine = WaitF(3f, 1);
-                    StartCoroutine(coroutine);
-                    if (Input.GetKeyUp(KeyCode.Q))
+                    if (transform.eulerAngles.y - Yrot1 > 15 || transform.eulerAngles.y - Yrot1 < -15)
                     {
-                        //StopAllCoroutines();
                         canGrapple = false;
-                        coroutine = WaitF(0.5f, 2);
-                        StartCoroutine(coroutine);
                     }
                 }
                 else
@@ -53,26 +58,12 @@ public class grapple : MonoBehaviour
         {
             movescript.IsWall = false;
         }
-    }
-    IEnumerator WaitF(float waitTime, int which)
-    {
-        yield return new WaitForSeconds(waitTime);
+        if (Input.GetKeyUp(KeyCode.Q))
         {
-            if (which == 1)
-            {
-                canGrapple = false;
-                coroutine = WaitF(0.5f, 2);
-                StartCoroutine(coroutine);
-            }
-            if (which == 2)
-            {
-                canGrapple = true;
-            }
-            if (which == 3)
-            {
-                canGrapple = false;
-            }
+            rotLock = true;
+            canGrapple = true;
         }
+        Debug.Log(canGrapple);
     }
 }
 
