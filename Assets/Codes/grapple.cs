@@ -18,6 +18,11 @@ public class grapple : MonoBehaviour
     public float Yrot1;
     bool rotLock = true;
 
+    public GameObject soosiisObj;
+    public Transform soosiis;
+
+    Vector3 MarkLoc = new Vector3();
+
     private void Update()
     {
         RaycastHit hit;
@@ -28,14 +33,17 @@ public class grapple : MonoBehaviour
                 Vector3 forward2 = new(transform.forward.x, camTrans.forward.y, transform.forward.z);
                 if (Physics.Raycast(transform.position, forward2, out hit, 400f, GrappleMask))
                 {
-                    Debug.Log("meow");
                     if (rotLock)
                     {
+                        MarkLoc = hit.point;
+                        Debug.Log(MarkLoc);
+                        soosiisObj.SetActive(true);
+                        soosiis.position = MarkLoc;
+                        soosiis.eulerAngles = playerTrans.eulerAngles;
                         Yrot1 = transform.eulerAngles.y;
                         rotLock = false;
                     }
                     movescript.controller.Move(forward2 * Time.deltaTime * 60);
-                    //Debug.DrawRay(transform.position, forward2, Color.black);
 
                     movescript.IsWall = true;
                     movescript.downVRes3();
@@ -62,8 +70,8 @@ public class grapple : MonoBehaviour
         {
             rotLock = true;
             canGrapple = true;
+            soosiisObj.SetActive(false);
         }
-        Debug.Log(canGrapple);
     }
 }
 
