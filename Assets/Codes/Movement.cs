@@ -21,15 +21,13 @@ public class Movement : MonoBehaviour
     public WallRunning wallScript;
     public bool canjump1 = false;
 
-
-
     private float fps = 30f;
 
     void OnGUI()
     {
         //this void calculates and shows fps
         float newFPS = 1.0f / Time.smoothDeltaTime;
-        fps = Mathf.Lerp(fps, newFPS, 0.0005f);
+        fps = Mathf.Lerp(fps, newFPS, 0.005f);
         GUI.Label(new Rect(0, 0, 100, 100), "FPS: " + ((int)fps).ToString());
 
     }
@@ -39,9 +37,17 @@ public class Movement : MonoBehaviour
     }
     void Update()
     {
-        isgrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        //this method of detecting isgrounded allows player to do jump over everything layered Ground
+        //isgrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
-
+        if (Physics.Raycast(playertrans.position, Vector3.down, 2f, groundMask))
+        {
+            isgrounded = true;
+        }
+        else
+        {
+            isgrounded = false;
+        }
         if (isgrounded && velocity.y < 0)
         {
             velocity.y = -downV;
