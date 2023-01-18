@@ -55,6 +55,7 @@ public class grapple : MonoBehaviour
                 else
                 {
                     movescript.IsWall = false;
+                    soosiisObj.SetActive(false);
                 }
             }
             else
