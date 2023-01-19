@@ -38,7 +38,6 @@ public class grapple : MonoBehaviour
                     if (rotLock)
                     {
                         MarkLoc = hit.point;
-                        Debug.Log(MarkLoc);
                         soosiisObj.SetActive(true);
                         soosiis.position = MarkLoc;
                         soosiis.eulerAngles = playerTrans.eulerAngles;

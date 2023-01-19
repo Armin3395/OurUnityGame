@@ -25,8 +25,7 @@ public class CamMovement : MonoBehaviour
         //fps = Mathf.Lerp(fps, newFPS, 0.0005f);
     }
         void Update()
-    {
-        //Debug.Log(newFPS);
+        {
         if (newFPS < 50)
         {
             MouseSensX = 140 + newFPS;
