@@ -19,7 +19,7 @@ public class WallRunning : MonoBehaviour
         RaycastHit hit;
         float a = playrt.position.y;
 
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.right), out hit, 2f, LayerMaskInt))
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.right), out hit, 3f, LayerMaskInt))
         {
             if (exmp == false)
             {
@@ -38,12 +38,13 @@ public class WallRunning : MonoBehaviour
             }
             if (!moveScript.isgrounded)
             {
-                CamTrans.localEulerAngles = new(0, 0, 24 * (2f - hit.distance));
+                CamTrans.localEulerAngles = new(0, 0, 24 * (3.5f - hit.distance));
             }
             moveScript.IsWall = true;
         }
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.left), out hit, 2f, LayerMaskInt))
+        if (Physics.Raycast(playrt.position, transform.TransformDirection(Vector3.left), out hit, 3f, LayerMaskInt))
         {
+            Debug.Log(hit.distance);
             if (exmp == false)
             {
                 moveScript.canjump1 = true;
@@ -61,11 +62,11 @@ public class WallRunning : MonoBehaviour
             }
             if (!moveScript.isgrounded)
             {
-                CamTrans.localEulerAngles = new(0, 0, -24 * (2f - hit.distance));
+                CamTrans.localEulerAngles = new(0, 0, -24 * (3.5f - hit.distance));
             }
             moveScript.IsWall = true;
         }
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.right), out hit, 2f, LayerMaskInt) == false && Physics.Raycast(transform.position, transform.TransformDirection(Vector3.left), out hit, 2f, LayerMaskInt) == false)
+        if (Physics.Raycast(playrt.position, transform.TransformDirection(Vector3.right), out hit, 3f, LayerMaskInt) == false && Physics.Raycast(transform.position, transform.TransformDirection(Vector3.left), out hit, 2f, LayerMaskInt) == false)
         {
             exmp = false;
             CamTrans.localEulerAngles = new(0, 0, 0);
