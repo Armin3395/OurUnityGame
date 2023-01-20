@@ -32,6 +32,8 @@ public class grapple : MonoBehaviour
         {
             if (canGrapple)
             {
+                //this script currently grapples/moves to a point a bit below the crosshair
+                //but it is not very important
                 Vector3 forward2 = new(transform.forward.x, camTrans.forward.y, transform.forward.z);
                 if (Physics.Raycast(transform.position, forward2, out hit, 400f, GrappleMask))
                 {

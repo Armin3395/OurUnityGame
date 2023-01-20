@@ -6,7 +6,7 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     public CharacterController controller;
-    public float speed = 12f;
+    public float speed = 15f;
     Vector3 velocity;
     public float gravity = -20f;
     public bool IsWall;
@@ -55,12 +55,12 @@ public class Movement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            speed = 20f;
+            speed = 23f;
         }
 
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
-            speed = 12f;
+            speed = 15f;
         }
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
