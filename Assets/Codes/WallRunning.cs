@@ -44,7 +44,6 @@ public class WallRunning : MonoBehaviour
         }
         if (Physics.Raycast(playrt.position, transform.TransformDirection(Vector3.left), out hit, 3f, LayerMaskInt))
         {
-            Debug.Log(hit.distance);
             if (exmp == false)
             {
                 moveScript.canjump1 = true;

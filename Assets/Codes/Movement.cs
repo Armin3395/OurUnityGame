@@ -37,17 +37,16 @@ public class Movement : MonoBehaviour
     }
     void Update()
     {
-        //this method of detecting isgrounded allows player to do jump over everything layered Ground
-        //isgrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        isgrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
-        if (Physics.Raycast(playertrans.position, Vector3.down, 2f, groundMask))
+        /*if (Physics.Raycast(playertrans.position, Vector3.down, 2f, groundMask))
         {
             isgrounded = true;
         }
         else
         {
             isgrounded = false;
-        }
+        }*/
         if (isgrounded && velocity.y < 0)
         {
             velocity.y = -downV;
@@ -105,4 +104,10 @@ public class Movement : MonoBehaviour
             velocity.y = velocity.y / 2;
         }
     }
+    //For Testing the Isgrounded Sphere
+    /*private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;    
+        Gizmos.DrawSphere(groundCheck.position, groundDistance);
+    }*/
 }

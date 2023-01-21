@@ -29,19 +29,16 @@ public class SettingsScript : MonoBehaviour
         if (IsOpen)
         {
             IsOpen = false;
-            Debug.Log("Close");
         }
         else
         {
             IsOpen = true;
-            Debug.Log("Open");
         }
     }
     public void MotionBlur()
     {
         if (volume.profile = nomot)
         {
-        Debug.Log("fuck");
         volume.profile = mot;
         }
 
