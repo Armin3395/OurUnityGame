@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -16181,7 +16181,7 @@ GameObject:
   - component: {fileID: 4322024220458752811}
   - component: {fileID: 7725263193378903100}
   - component: {fileID: 9153909008016156200}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Plane.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16518,7 +16518,7 @@ GameObject:
   - component: {fileID: 766742507199952571}
   - component: {fileID: 7242922458591079447}
   - component: {fileID: 7650487436670334512}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16609,7 +16609,7 @@ GameObject:
   - component: {fileID: 3246567414802874729}
   - component: {fileID: 6343340103153442230}
   - component: {fileID: 7819430030923020574}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16642,7 +16642,7 @@ GameObject:
   - component: {fileID: 7093351337864020229}
   - component: {fileID: 1497948554489978703}
   - component: {fileID: 7979698772946426560}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16755,7 +16755,7 @@ GameObject:
   - component: {fileID: 2640808569421321550}
   - component: {fileID: 8436436066615159203}
   - component: {fileID: 8752969363452810756}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
