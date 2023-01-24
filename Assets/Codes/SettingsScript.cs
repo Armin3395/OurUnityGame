@@ -26,20 +26,6 @@ public class SettingsScript : MonoBehaviour
     public grapple GrappleScript;
     public SwordScript SwordScr;
 
-    /*void OnGUI()
-    {
-        string[] names = QualitySettings.names;
-        GUILayout.BeginVertical();
-        for (int i = 0; i < names.Length; i++)
-        {
-            if (GUILayout.Button(names[i]))
-            {
-                QualitySettings.SetQualityLevel(i, true);
-            }
-        }
-        GUILayout.EndVertical();
-    }*/
-
     public void SetQualityVoid(int i)
     {
         QualitySettings.SetQualityLevel(i, true);

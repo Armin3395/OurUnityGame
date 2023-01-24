@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class WallRunning : MonoBehaviour
 {
-    //Hi
     public Movement moveScript;
     public Transform CamTrans;
     public Transform playrt;

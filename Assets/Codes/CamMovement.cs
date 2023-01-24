@@ -15,14 +15,9 @@ public class CamMovement : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
     }
-
-    //public float fps = 30f;
-
     void OnGUI()
     {
-        //this void calculates and shows fps
         newFPS = 1.0f / Time.smoothDeltaTime;
-        //fps = Mathf.Lerp(fps, newFPS, 0.0005f);
     }
         void Update()
         {
